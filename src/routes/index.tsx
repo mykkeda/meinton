@@ -142,16 +142,16 @@ function Index() {
         <img
           src={heroImg}
           alt="Julian Blumnauer Studio"
-          className="absolute inset-0 h-full w-full object-cover brightness-[1.75]"
+          className="absolute inset-0 h-full w-full object-cover brightness-[1.45]"
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/20 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/55 via-background/20 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-[2cm] pt-32 pb-24">
-          <p className="text-accent text-lg mb-6 tracking-wide" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.35)' }}>hi, ich bin julian.</p>
+          <p className="text-accent text-lg mb-6 tracking-wide" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.55)' }}>hi, ich bin julian.</p>
           <h1
             className="display text-6xl md:text-8xl leading-[0.9] max-w-4xl"
-            style={{ textShadow: '0 2px 18px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25)' }}
+            style={{ textShadow: '0 2px 28px rgba(0,0,0,0.6), 0 1px 5px rgba(0,0,0,0.45), 0 0 1px rgba(0,0,0,0.35)' }}
           >
             MIXING<br />RECORDING<br />MUSIKPRODUKTION
           </h1>
