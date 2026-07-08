@@ -80,7 +80,7 @@ function Index() {
           navHidden ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
         }`}
       >
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-[2cm] py-4">
           <a href="#top" className="display text-xl tracking-widest">JULIAN BLUMNAUER</a>
           <ul className="hidden md:flex items-center gap-8 text-sm">
             {navItems.map((item) => (
@@ -147,7 +147,7 @@ function Index() {
           height={1080}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20" />
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-32 pb-24">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-[2cm] pt-32 pb-24">
           <p className="text-accent text-lg mb-6 tracking-wide">hi, ich bin julian.</p>
           <h1 className="display text-6xl md:text-8xl leading-[0.9] max-w-4xl">
             MIXING<br />RECORDING<br />MUSIKPRODUKTION
@@ -162,7 +162,7 @@ function Index() {
       </section>
 
       {/* Produktionen */}
-      <section id="produktionen" className="relative py-24 md:py-32 px-6 bg-background/15 backdrop-blur-sm overflow-hidden">
+      <section id="produktionen" className="relative py-24 md:py-32 px-6 lg:px-[2cm] bg-background/15 backdrop-blur-sm overflow-hidden">
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10" />
         </div>
@@ -189,7 +189,7 @@ function Index() {
 
 
       {/* Kontakt */}
-      <section id="kontakt" className="py-24 md:py-32 px-6 bg-card/30">
+      <section id="kontakt" className="py-24 md:py-32 px-6 lg:px-[2cm] bg-card/30">
         <div className="mx-auto max-w-6xl">
           <h2 className="display text-5xl md:text-6xl mb-16">Kontakt</h2>
           <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-center">
@@ -234,7 +234,7 @@ function Index() {
       </section>
 
       {/* Impressum & Datenschutz */}
-      <footer id="impressum" className="border-t border-border py-16 px-6">
+      <footer id="impressum" className="border-t border-border py-16 px-6 lg:px-[2cm]">
         <div className="mx-auto max-w-4xl flex flex-col gap-4 text-sm text-muted-foreground">
           <details className="group bg-card/40 border border-border rounded-lg">
             <summary className="flex items-center justify-between px-6 py-4 select-none">
@@ -342,7 +342,7 @@ function LatestReleases() {
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
         {Array.from({ length: 16 }).map((_, i) => (
           <div key={i} className="aspect-square bg-card/50 animate-pulse rounded-md" />
         ))}
@@ -359,7 +359,7 @@ function LatestReleases() {
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
       {data.map((t) => (
         <a
           key={t.id}
@@ -368,7 +368,7 @@ function LatestReleases() {
           rel="noreferrer"
           className="group block"
         >
-          <div className="aspect-square overflow-hidden rounded-xl bg-card/30 backdrop-blur-md border border-border/40 shadow-sm transition-all duration-500 group-hover:bg-card/50 group-hover:border-accent/30">
+          <div className="aspect-square overflow-hidden rounded-lg bg-card/30 backdrop-blur-md border border-border/40 shadow-sm transition-all duration-500 group-hover:bg-card/50 group-hover:border-accent/30">
             <img
               src={t.cover}
               alt={`${t.title} – ${t.artist}`}
@@ -376,8 +376,8 @@ function LatestReleases() {
               className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-95"
             />
           </div>
-          <p className="mt-3 font-medium truncate">{t.title}</p>
-          <p className="text-sm text-muted-foreground truncate">{t.artist}</p>
+          <p className="mt-2 text-sm font-medium truncate">{t.title}</p>
+          <p className="text-xs text-muted-foreground truncate">{t.artist}</p>
         </a>
       ))}
     </div>
