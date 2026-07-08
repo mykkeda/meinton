@@ -148,13 +148,16 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/20 via-transparent to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-[2cm] pt-32 pb-24">
-          <p className="text-accent text-lg mb-6 tracking-wide">hi, ich bin julian.</p>
-          <h1 className="display text-6xl md:text-8xl leading-[0.9] max-w-4xl">
+          <p className="text-accent text-lg mb-6 tracking-wide" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.35)' }}>hi, ich bin julian.</p>
+          <h1
+            className="display text-6xl md:text-8xl leading-[0.9] max-w-4xl"
+            style={{ textShadow: '0 2px 18px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25)' }}
+          >
             MIXING<br />RECORDING<br />MUSIKPRODUKTION
           </h1>
           <a
             href="#kontakt"
-            className="inline-block mt-12 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-sm tracking-widest uppercase transition-colors"
+            className="inline-block mt-12 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-sm tracking-widest uppercase transition-colors drop-shadow-lg"
           >
             Kontakt
           </a>
