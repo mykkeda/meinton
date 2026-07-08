@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
 import { Instagram, Mail, Play, Music, Mic, Sliders } from "lucide-react";
+import { getLatestTracks } from "@/lib/spotify.functions";
 import heroAsset from "@/assets/jb/mixing.webp.asset.json";
 import mixingAsset from "@/assets/jb/mixing.webp.asset.json";
 import recordingAsset from "@/assets/jb/recording.webp.asset.json";
