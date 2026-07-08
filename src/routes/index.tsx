@@ -162,8 +162,11 @@ function Index() {
       </section>
 
       {/* Produktionen */}
-      <section id="produktionen" className="py-24 md:py-32 px-6">
-        <div className="mx-auto max-w-6xl">
+      <section id="produktionen" className="relative py-24 md:py-32 px-6 bg-background/15 backdrop-blur-sm overflow-hidden">
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10" />
+        </div>
+        <div className="relative mx-auto max-w-6xl">
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
             <div>
               <h2 className="display text-5xl md:text-6xl">Produktionen</h2>
@@ -340,8 +343,8 @@ function LatestReleases() {
   if (isLoading) {
     return (
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {Array.from({ length: 8 }).map((_, i) => (
-          <div key={i} className="aspect-square bg-card animate-pulse rounded-md" />
+        {Array.from({ length: 16 }).map((_, i) => (
+          <div key={i} className="aspect-square bg-card/50 animate-pulse rounded-md" />
         ))}
       </div>
     );
@@ -365,12 +368,12 @@ function LatestReleases() {
           rel="noreferrer"
           className="group block"
         >
-          <div className="aspect-square overflow-hidden rounded-xl bg-card">
+          <div className="aspect-square overflow-hidden rounded-xl bg-card/30 backdrop-blur-md border border-border/40 shadow-sm transition-all duration-500 group-hover:bg-card/50 group-hover:border-accent/30">
             <img
               src={t.cover}
               alt={`${t.title} – ${t.artist}`}
               loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-95"
             />
           </div>
           <p className="mt-3 font-medium truncate">{t.title}</p>

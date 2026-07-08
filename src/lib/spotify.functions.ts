@@ -36,7 +36,7 @@ export const getLatestTracks = createServerFn({ method: "GET" }).handler(
     if (!list.length) throw new Error("Playlist is empty");
 
     // Playlist ist bereits newest-first sortiert
-    const newest = list.slice(0, 8);
+    const newest = list.slice(0, 16);
 
     const enriched = await Promise.all(
       newest.map(async (t): Promise<LatestTrack> => {
