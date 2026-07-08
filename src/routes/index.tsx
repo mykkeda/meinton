@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { ChevronDown, Instagram, Mail, Play } from "lucide-react";
+import { ChevronDown, Instagram, Mail, Menu, Play } from "lucide-react";
+import { useState } from "react";
 import { getLatestTracks } from "@/lib/spotify.functions";
 import heroAsset from "@/assets/jb/mixing.webp.asset.json";
 import portraitAsset from "@/assets/jb/portrait.webp.asset.json";
@@ -44,6 +45,14 @@ const mosaicCovers = [cover1.url, cover2.url, cover3.url, cover4.url];
 
 
 function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navItems = [
+    { href: "#top", label: "Start" },
+    { href: "#produktionen", label: "Produktionen" },
+    { href: "#kontakt", label: "Kontakt" },
+    { href: "#impressum", label: "Impressum" },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Nav */}
@@ -51,13 +60,41 @@ function Index() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#top" className="display text-xl tracking-widest">JULIAN BLUMNAUER</a>
           <ul className="hidden md:flex items-center gap-8 text-sm">
-            <li><a href="#produktionen" className="hover:text-accent transition-colors">Produktionen</a></li>
-            
-            <li><a href="#kontakt" className="hover:text-accent transition-colors">Kontakt</a></li>
-            <li><a href="#impressum" className="hover:text-accent transition-colors">Impressum</a></li>
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} className="hover:text-accent transition-colors">{item.label}</a>
+              </li>
+            ))}
           </ul>
+          <button
+            type="button"
+            aria-label="Menü öffnen"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-md hover:bg-card transition-colors"
+          >
+            <Menu className="h-5 w-5" />
+          </button>
         </nav>
+        {menuOpen && (
+          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
+            <ul className="flex flex-col px-6 py-2">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-3 text-sm hover:text-accent transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </header>
+
 
       {/* Hero */}
       <section id="top" className="relative min-h-screen flex items-center overflow-hidden">
