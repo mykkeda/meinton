@@ -87,31 +87,33 @@ function Index() {
           </ul>
           <button
             type="button"
-            aria-label="Menü öffnen"
+            aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
             className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-md hover:bg-card transition-colors"
           >
-            <Menu className="h-5 w-5" />
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </nav>
-        {menuOpen && (
-          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
-            <ul className="flex flex-col px-6 py-2">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="block py-3 text-sm hover:text-accent transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+        <div className={`mobile-menu md:hidden ${menuOpen ? "open" : ""}`}>
+          <div className="mobile-menu-inner">
+            <div className="border-t border-border bg-background/95 backdrop-blur-md">
+              <ul className="flex flex-col px-6 py-2">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="mobile-menu-link block py-3 text-lg hover:text-accent transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        )}
+        </div>
       </header>
 
       {/* Floating nav pill when header is hidden */}
@@ -143,23 +145,25 @@ function Index() {
             {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
-        {menuOpen && (
-          <div className="md:hidden mt-2 rounded-xl border border-border/50 bg-background/80 backdrop-blur-md overflow-hidden">
-            <ul className="flex flex-col py-1">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="block px-4 py-2 text-sm hover:text-accent transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+        <div className={`mobile-menu md:hidden mt-2 ${menuOpen ? "open" : ""}`}>
+          <div className="mobile-menu-inner">
+            <div className="rounded-xl border border-border/50 bg-background/80 backdrop-blur-md overflow-hidden">
+              <ul className="flex flex-col py-1">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="mobile-menu-link block px-4 py-2 text-base hover:text-accent transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        )}
+        </div>
       </div>
 
 
