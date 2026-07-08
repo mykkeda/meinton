@@ -8,70 +8,61 @@ export type LatestTrack = {
   artist: string;
   cover: string;
   url: string;
-  addedAt: string;
+};
+
+type EmbedTrack = {
+  uri: string;
+  title: string;
+  subtitle: string;
 };
 
 export const getLatestTracks = createServerFn({ method: "GET" }).handler(
   async (): Promise<LatestTrack[]> => {
-    const clientId = process.env.SPOTIFY_CLIENT_ID;
-    const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
-    if (!clientId || !clientSecret) {
-      throw new Error("Spotify credentials not configured");
+    const embedRes = await fetch(
+      `https://open.spotify.com/embed/playlist/${PLAYLIST_ID}`,
+      { headers: { "User-Agent": "Mozilla/5.0" } },
+    );
+    if (!embedRes.ok) {
+      throw new Error(`Playlist fetch failed [${embedRes.status}]`);
     }
+    const html = await embedRes.text();
+    const match = html.match(
+      /<script id="__NEXT_DATA__" type="application\/json">([\s\S]*?)<\/script>/,
+    );
+    if (!match) throw new Error("Playlist payload not found");
+    const data = JSON.parse(match[1]);
+    const list: EmbedTrack[] =
+      data?.props?.pageProps?.state?.data?.entity?.trackList ?? [];
+    if (!list.length) throw new Error("Playlist is empty");
 
-    const tokenRes = await fetch("https://accounts.spotify.com/api/token", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        Authorization:
-          "Basic " + Buffer.from(`${clientId}:${clientSecret}`).toString("base64"),
-      },
-      body: "grant_type=client_credentials",
-    });
-    if (!tokenRes.ok) {
-      const body = await tokenRes.text();
-      throw new Error(`Spotify token failed [${tokenRes.status}]: ${body}`);
-    }
-    const { access_token } = (await tokenRes.json()) as { access_token: string };
+    // Neueste Adds stehen am Ende der Playlist → letzte 8, umgedreht
+    const newest = list.slice(-8).reverse();
 
-    const fields =
-      "items(added_at,track(id,name,external_urls,artists(name),album(images)))";
-    const url = `https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/tracks?limit=50&fields=${encodeURIComponent(fields)}`;
-    const res = await fetch(url, {
-      headers: { Authorization: `Bearer ${access_token}` },
-    });
-    if (!res.ok) {
-      const body = await res.text();
-      throw new Error(`Spotify playlist failed [${res.status}]: ${body}`);
-    }
-    const data = (await res.json()) as {
-      items: Array<{
-        added_at: string;
-        track: {
-          id: string;
-          name: string;
-          external_urls: { spotify: string };
-          artists: Array<{ name: string }>;
-          album: { images: Array<{ url: string; width: number }> };
-        } | null;
-      }>;
-    };
-
-    return data.items
-      .filter((i) => i.track)
-      .sort((a, b) => (a.added_at < b.added_at ? 1 : -1))
-      .slice(0, 8)
-      .map((i) => {
-        const t = i.track!;
-        const img = t.album.images[0]?.url ?? "";
+    const enriched = await Promise.all(
+      newest.map(async (t): Promise<LatestTrack> => {
+        const id = t.uri.split(":").pop() ?? "";
+        let cover = "";
+        try {
+          const oe = await fetch(
+            `https://open.spotify.com/oembed?url=${encodeURIComponent(t.uri)}`,
+          );
+          if (oe.ok) {
+            const j = (await oe.json()) as { thumbnail_url?: string };
+            cover = j.thumbnail_url ?? "";
+          }
+        } catch {
+          // ignore, cover stays empty
+        }
         return {
-          id: t.id,
-          title: t.name,
-          artist: t.artists.map((a) => a.name).join(", "),
-          cover: img,
-          url: t.external_urls.spotify,
-          addedAt: i.added_at,
+          id,
+          title: t.title,
+          artist: t.subtitle,
+          cover,
+          url: `https://open.spotify.com/track/${id}`,
         };
-      });
+      }),
+    );
+
+    return enriched;
   },
 );
