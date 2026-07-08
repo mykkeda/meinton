@@ -23,19 +23,21 @@ export const Route = createFileRoute("/")({
 });
 
 const productions = [
-  { n: 1, title: "NEUER MANN", artist: "EBENNET", time: "03:37" },
-  { n: 2, title: "frühling", artist: "Florin", time: "02:24" },
-  { n: 3, title: "wie gemalt", artist: "blumn", time: "03:26" },
-  { n: 4, title: "VERRÜCKT", artist: "EBENNET", time: "02:20" },
-  { n: 5, title: "Monopoly", artist: "Denise Herwig", time: "02:54" },
-  { n: 6, title: "The Greatest", artist: "Call Us Janis", time: "03:18" },
-  { n: 7, title: "KAMMERFLIMMERN", artist: "EBENNET", time: "02:43" },
-  { n: 8, title: "Drifting Apart", artist: "Call Us Janis", time: "02:57" },
-  { n: 9, title: "Last Dance", artist: "Mykket Morton", time: "05:10" },
-  { n: 10, title: "Sky Go", artist: "KAMANKO", time: "04:47" },
-  { n: 11, title: "Michael Cera", artist: "KAMANKO", time: "04:11" },
-  { n: 12, title: "POTENTIAL", artist: "BENNET", time: "03:30" },
+  { n: 1, title: "NEUER MANN", artist: "EBENNET", time: "03:37", cover: cover1.url },
+  { n: 2, title: "frühling", artist: "Florin", time: "02:24", cover: cover2.url },
+  { n: 3, title: "wie gemalt", artist: "blumn", time: "03:26", cover: cover3.url },
+  { n: 4, title: "VERRÜCKT", artist: "EBENNET", time: "02:20", cover: cover4.url },
+  { n: 5, title: "Monopoly", artist: "Denise Herwig", time: "02:54", cover: cover5.url },
+  { n: 6, title: "The Greatest", artist: "Call Us Janis", time: "03:18", cover: cover6.url },
+  { n: 7, title: "KAMMERFLIMMERN", artist: "EBENNET", time: "02:43", cover: cover7.url },
+  { n: 8, title: "Drifting Apart", artist: "Call Us Janis", time: "02:57", cover: cover8.url },
+  { n: 9, title: "Last Dance", artist: "Mykket Morton", time: "05:10", cover: cover9.url },
+  { n: 10, title: "Sky Go", artist: "KAMANKO", time: "04:47", cover: cover10.url },
+  { n: 11, title: "Michael Cera", artist: "KAMANKO", time: "04:11", cover: cover11.url },
+  { n: 12, title: "POTENTIAL", artist: "BENNET", time: "03:30", cover: cover12.url },
 ];
+
+const mosaicCovers = [cover1.url, cover2.url, cover3.url, cover4.url];
 
 const beats = [
   { n: 1, title: "The-Flute-Dude_Trap", time: "4:16" },
