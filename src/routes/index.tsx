@@ -89,7 +89,6 @@ function Index() {
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
             <div>
               <h2 className="display text-5xl md:text-6xl">Produktionen</h2>
-              <p className="text-muted-foreground mt-2">Neueste Releases aus der Spotify-Playlist</p>
             </div>
             <a
               href="https://open.spotify.com/playlist/5419zbBnnQlrsf9RCnxGyU"
