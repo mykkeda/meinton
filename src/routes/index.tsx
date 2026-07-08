@@ -162,9 +162,9 @@ function Index() {
       </section>
 
       {/* Produktionen */}
-      <section id="produktionen" className="relative py-24 md:py-32 px-6 bg-background/30 backdrop-blur-sm overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-primary/20" />
+      <section id="produktionen" className="relative py-24 md:py-32 px-6 bg-background/15 backdrop-blur-sm overflow-hidden">
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10" />
         </div>
         <div className="relative mx-auto max-w-6xl">
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
