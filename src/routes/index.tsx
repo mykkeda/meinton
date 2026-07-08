@@ -145,27 +145,25 @@ function Index() {
             {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
-        {menuOpen && (
-          <div className={`mobile-menu md:hidden mt-2 ${menuOpen ? "open" : ""}`}>
-            <div className="mobile-menu-inner">
-              <div className="rounded-xl border border-border/50 bg-background/80 backdrop-blur-md overflow-hidden">
-                <ul className="flex flex-col py-1">
-                  {navItems.map((item) => (
-                    <li key={item.href}>
-                      <a
-                        href={item.href}
-                        onClick={() => setMenuOpen(false)}
-                        className="mobile-menu-link block px-4 py-2 text-base hover:text-accent transition-colors"
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <div className={`mobile-menu md:hidden mt-2 ${menuOpen ? "open" : ""}`}>
+          <div className="mobile-menu-inner">
+            <div className="rounded-xl border border-border/50 bg-background/80 backdrop-blur-md overflow-hidden">
+              <ul className="flex flex-col py-1">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="mobile-menu-link block px-4 py-2 text-base hover:text-accent transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
 
