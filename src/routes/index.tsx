@@ -130,9 +130,11 @@ function Index() {
               <div className="flex flex-col gap-4">
                 <a
                   href="https://www.instagram.com/mykkeda_prod/"
-                  target="_top"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 bg-card border border-border hover:border-accent px-6 py-4 rounded-lg transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.top!.location.href = "https://www.instagram.com/mykkeda_prod/";
+                  }}
                 >
                   <Instagram className="h-5 w-5 text-accent" />
                   <span>Instagram</span>
