@@ -68,12 +68,16 @@ function Index() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [navHidden]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Nav */}
       <header
-        className={`fixed top-0 z-50 w-full bg-background/70 backdrop-blur-md border-b border-border transition-transform duration-500 ease-out ${
-          navHidden ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
+        className={`fixed top-0 z-50 w-full bg-background/70 backdrop-blur-md border-b border-border transition-all duration-500 ease-out ${
+          navHidden ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -137,7 +141,7 @@ function Index() {
           </ul>
           <button
             type="button"
-            aria-label="Menü öffnen"
+            aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
             className="md:hidden inline-flex items-center justify-center h-8 w-8 rounded-full hover:bg-white/10 transition-colors"
