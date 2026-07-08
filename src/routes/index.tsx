@@ -151,7 +151,7 @@ function Index() {
           <p className="text-accent text-lg mb-6 tracking-wide" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.55)' }}>hi, ich bin julian.</p>
           <h1
             className="display text-6xl md:text-8xl leading-[0.9] max-w-4xl"
-            style={{ textShadow: '0 2px 24px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4), 0 0 1px rgba(0,0,0,0.35)' }}
+            style={{ textShadow: '0 2px 28px rgba(0,0,0,0.6), 0 1px 5px rgba(0,0,0,0.45), 0 0 1px rgba(0,0,0,0.35)' }}
           >
             MIXING<br />RECORDING<br />MUSIKPRODUKTION
           </h1>
