@@ -368,12 +368,12 @@ function LatestReleases() {
           rel="noreferrer"
           className="group block"
         >
-          <div className="aspect-square overflow-hidden rounded-xl bg-card">
+          <div className="aspect-square overflow-hidden rounded-xl bg-card/30 backdrop-blur-md border border-border/40 shadow-sm transition-all duration-500 group-hover:bg-card/50 group-hover:border-accent/30">
             <img
               src={t.cover}
               alt={`${t.title} – ${t.artist}`}
               loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-95"
             />
           </div>
           <p className="mt-3 font-medium truncate">{t.title}</p>
