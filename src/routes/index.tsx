@@ -244,3 +244,56 @@ function Index() {
     </div>
   );
 }
+
+function LatestReleases() {
+  const fetchLatest = useServerFn(getLatestTracks);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["spotify", "latest", "5419zbBnnQlrsf9RCnxGyU"],
+    queryFn: () => fetchLatest(),
+    staleTime: 1000 * 60 * 60,
+    refetchOnWindowFocus: false,
+  });
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div key={i} className="aspect-square bg-card animate-pulse rounded-md" />
+        ))}
+      </div>
+    );
+  }
+
+  if (error || !data?.length) {
+    return (
+      <p className="text-muted-foreground text-sm">
+        Releases konnten nicht geladen werden.
+      </p>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {data.map((t) => (
+        <a
+          key={t.id}
+          href={t.url}
+          target="_blank"
+          rel="noreferrer"
+          className="group block"
+        >
+          <div className="aspect-square overflow-hidden rounded-md bg-card">
+            <img
+              src={t.cover}
+              alt={`${t.title} – ${t.artist}`}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <p className="mt-3 font-medium truncate">{t.title}</p>
+          <p className="text-sm text-muted-foreground truncate">{t.artist}</p>
+        </a>
+      ))}
+    </div>
+  );
+}
