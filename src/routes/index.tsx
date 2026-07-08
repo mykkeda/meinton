@@ -142,11 +142,11 @@ function Index() {
         <img
           src={heroImg}
           alt="Julian Blumnauer Studio"
-          className="absolute inset-0 h-full w-full object-cover brightness-[1.5]"
+          className="absolute inset-0 h-full w-full object-cover brightness-[1.45]"
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-background/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/55 via-background/20 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-[2cm] pt-32 pb-24">
           <p className="text-accent text-lg mb-6 tracking-wide" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.55)' }}>hi, ich bin julian.</p>
           <h1
