@@ -5,25 +5,39 @@ import mixingImg from "@/assets/mixing.jpg";
 import recordingImg from "@/assets/recording.jpg";
 import produktionImg from "@/assets/produktion.jpg";
 import portraitImg from "@/assets/portrait.jpg";
+import cover1 from "@/assets/covers/c1.jpg.asset.json";
+import cover2 from "@/assets/covers/c2.jpg.asset.json";
+import cover3 from "@/assets/covers/c3.jpg.asset.json";
+import cover4 from "@/assets/covers/c4.jpg.asset.json";
+import cover5 from "@/assets/covers/c5.jpg.asset.json";
+import cover6 from "@/assets/covers/c6.jpg.asset.json";
+import cover7 from "@/assets/covers/c7.jpg.asset.json";
+import cover8 from "@/assets/covers/c8.jpg.asset.json";
+import cover9 from "@/assets/covers/c9.jpg.asset.json";
+import cover10 from "@/assets/covers/c10.jpg.asset.json";
+import cover11 from "@/assets/covers/c11.jpg.asset.json";
+import cover12 from "@/assets/covers/c12.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
 const productions = [
-  { n: 1, title: "NEUER MANN", artist: "EBENNET", time: "03:37" },
-  { n: 2, title: "frühling", artist: "Florin", time: "02:24" },
-  { n: 3, title: "wie gemalt", artist: "blumn", time: "03:26" },
-  { n: 4, title: "VERRÜCKT", artist: "EBENNET", time: "02:20" },
-  { n: 5, title: "Monopoly", artist: "Denise Herwig", time: "02:54" },
-  { n: 6, title: "The Greatest", artist: "Call Us Janis", time: "03:18" },
-  { n: 7, title: "KAMMERFLIMMERN", artist: "EBENNET", time: "02:43" },
-  { n: 8, title: "Drifting Apart", artist: "Call Us Janis", time: "02:57" },
-  { n: 9, title: "Last Dance", artist: "Mykket Morton", time: "05:10" },
-  { n: 10, title: "Sky Go", artist: "KAMANKO", time: "04:47" },
-  { n: 11, title: "Michael Cera", artist: "KAMANKO", time: "04:11" },
-  { n: 12, title: "POTENTIAL", artist: "BENNET", time: "03:30" },
+  { n: 1, title: "NEUER MANN", artist: "EBENNET", time: "03:37", cover: cover1.url },
+  { n: 2, title: "frühling", artist: "Florin", time: "02:24", cover: cover2.url },
+  { n: 3, title: "wie gemalt", artist: "blumn", time: "03:26", cover: cover3.url },
+  { n: 4, title: "VERRÜCKT", artist: "EBENNET", time: "02:20", cover: cover4.url },
+  { n: 5, title: "Monopoly", artist: "Denise Herwig", time: "02:54", cover: cover5.url },
+  { n: 6, title: "The Greatest", artist: "Call Us Janis", time: "03:18", cover: cover6.url },
+  { n: 7, title: "KAMMERFLIMMERN", artist: "EBENNET", time: "02:43", cover: cover7.url },
+  { n: 8, title: "Drifting Apart", artist: "Call Us Janis", time: "02:57", cover: cover8.url },
+  { n: 9, title: "Last Dance", artist: "Mykket Morton", time: "05:10", cover: cover9.url },
+  { n: 10, title: "Sky Go", artist: "KAMANKO", time: "04:47", cover: cover10.url },
+  { n: 11, title: "Michael Cera", artist: "KAMANKO", time: "04:11", cover: cover11.url },
+  { n: 12, title: "POTENTIAL", artist: "BENNET", time: "03:30", cover: cover12.url },
 ];
+
+const mosaicCovers = [cover1.url, cover2.url, cover3.url, cover4.url];
 
 const beats = [
   { n: 1, title: "The-Flute-Dude_Trap", time: "4:16" },
@@ -78,16 +92,20 @@ function Index() {
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="bg-card border border-border p-6 rounded-lg">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-16 w-16 rounded bg-accent/20 flex items-center justify-center">
-                  <Music className="h-8 w-8 text-accent" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">Playlist</p>
-                  <h3 className="text-xl font-semibold">Produced/Mixed by Julian Blumnauer</h3>
-                  <p className="text-sm text-muted-foreground">blumnauer · Spotify</p>
-                </div>
+              <div className="grid grid-cols-2 gap-0 rounded-md overflow-hidden aspect-square mb-6">
+                {mosaicCovers.map((url, i) => (
+                  <img
+                    key={i}
+                    src={url}
+                    alt="Playlist Cover"
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                ))}
               </div>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">Playlist</p>
+              <h3 className="text-xl font-semibold mt-1">Produced/Mixed by Julian Blumnauer</h3>
+              <p className="text-sm text-muted-foreground mb-6">blumnauer · Spotify</p>
               <a
                 href="https://open.spotify.com/playlist/5419zbBnnQlrsf9RCnxGyU"
                 target="_blank"
@@ -99,10 +117,11 @@ function Index() {
               </a>
             </div>
 
-            <ol className="space-y-1 max-h-[500px] overflow-y-auto pr-2">
+            <ol className="space-y-1 max-h-[600px] overflow-y-auto pr-2">
               {productions.map((t) => (
-                <li key={t.n} className="flex items-center gap-4 py-3 border-b border-border/50 hover:bg-card/50 px-2 transition-colors">
+                <li key={t.n} className="flex items-center gap-4 py-2 border-b border-border/50 hover:bg-card/50 px-2 transition-colors">
                   <span className="text-muted-foreground text-sm w-6 tabular-nums">{t.n}</span>
+                  <img src={t.cover} alt="" loading="lazy" className="h-12 w-12 rounded object-cover" />
                   <div className="flex-1 min-w-0">
                     <p className="font-medium truncate">{t.title}</p>
                     <p className="text-sm text-muted-foreground truncate">{t.artist}</p>
