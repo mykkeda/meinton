@@ -97,29 +97,27 @@ function Index() {
           <h2 className="display text-5xl md:text-6xl mb-16">Produktionen</h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="bg-card border border-border p-6 rounded-lg">
-              <div className="grid grid-cols-2 gap-0 rounded-md overflow-hidden aspect-square mb-6">
-                {mosaicCovers.map((url, i) => (
-                  <img
-                    key={i}
-                    src={url}
-                    alt="Playlist Cover"
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                ))}
-              </div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">Playlist</p>
-              <h3 className="text-xl font-semibold mt-1">Produced/Mixed by Julian Blumnauer</h3>
-              <p className="text-sm text-muted-foreground mb-6">blumnauer · Spotify</p>
+            <div className="bg-card border border-border p-4 rounded-lg">
+              <iframe
+                title="Spotify Playlist – Produced/Mixed by Julian Blumnauer"
+                src="https://open.spotify.com/embed/playlist/5419zbBnnQlrsf9RCnxGyU?utm_source=generator&theme=0"
+                width="100%"
+                height="700"
+                frameBorder={0}
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                allowFullScreen
+                className="rounded-md w-full"
+                style={{ minHeight: 600 }}
+              />
               <a
                 href="https://open.spotify.com/playlist/5419zbBnnQlrsf9RCnxGyU"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold px-6 py-3 rounded-full transition-colors"
+                className="mt-4 inline-flex items-center gap-2 bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold px-6 py-3 rounded-full transition-colors"
               >
                 <Play className="h-4 w-4 fill-current" />
-                Play on Spotify
+                Auf Spotify öffnen
               </a>
             </div>
 
