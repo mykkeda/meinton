@@ -223,7 +223,7 @@ function LatestReleases() {
           rel="noreferrer"
           className="group block"
         >
-          <div className="aspect-square overflow-hidden rounded-md bg-card">
+          <div className="aspect-square overflow-hidden rounded-xl bg-card">
             <img
               src={t.cover}
               alt={`${t.title} – ${t.artist}`}
