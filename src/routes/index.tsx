@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { ChevronDown, Instagram, Mail, Menu, Play, X } from "lucide-react";
+import { ArrowUp, ChevronDown, Instagram, Mail, Menu, Play, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { getLatestTracks } from "@/lib/spotify.functions";
 import heroAsset from "@/assets/jb/mixing.webp.asset.json";
