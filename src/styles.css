@@ -69,3 +69,25 @@
     letter-spacing: 0.01em;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id], footer[id] {
+  scroll-margin-top: 5rem;
+}
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] > summary .details-chevron {
+  transform: rotate(180deg);
+}
+.details-chevron {
+  transition: transform 0.25s ease;
+}
