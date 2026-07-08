@@ -1,12 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { Instagram, Mail, Play, Music, Mic, Sliders } from "lucide-react";
+import { Instagram, Mail, Play } from "lucide-react";
 import { getLatestTracks } from "@/lib/spotify.functions";
 import heroAsset from "@/assets/jb/mixing.webp.asset.json";
-import mixingAsset from "@/assets/jb/mixing.webp.asset.json";
-import recordingAsset from "@/assets/jb/recording.webp.asset.json";
-import produktionAsset from "@/assets/jb/produktion.webp.asset.json";
 import portraitAsset from "@/assets/jb/portrait.webp.asset.json";
 import cover1 from "@/assets/covers/c1.jpg.asset.json";
 import cover2 from "@/assets/covers/c2.jpg.asset.json";
@@ -22,9 +19,6 @@ import cover11 from "@/assets/covers/c11.jpg.asset.json";
 import cover12 from "@/assets/covers/c12.jpg.asset.json";
 
 const heroImg = heroAsset.url;
-const mixingImg = mixingAsset.url;
-const recordingImg = recordingAsset.url;
-const produktionImg = produktionAsset.url;
 const portraitImg = portraitAsset.url;
 
 export const Route = createFileRoute("/")({
@@ -48,11 +42,6 @@ const productions = [
 
 const mosaicCovers = [cover1.url, cover2.url, cover3.url, cover4.url];
 
-const beats = [
-  { n: 1, title: "The-Flute-Dude_Trap", time: "4:16" },
-  { n: 2, title: "EmEm_HipHop", time: "2:41" },
-  { n: 3, title: "Rap_Beat", time: "3:50" },
-];
 
 function Index() {
   return (
@@ -63,7 +52,7 @@ function Index() {
           <a href="#top" className="display text-xl tracking-widest">JULIAN BLUMNAUER</a>
           <ul className="hidden md:flex items-center gap-8 text-sm">
             <li><a href="#produktionen" className="hover:text-accent transition-colors">Produktionen</a></li>
-            <li><a href="#beats" className="hover:text-accent transition-colors">Beats</a></li>
+            
             <li><a href="#kontakt" className="hover:text-accent transition-colors">Kontakt</a></li>
             <li><a href="#impressum" className="hover:text-accent transition-colors">Impressum</a></li>
           </ul>
@@ -117,54 +106,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Beats */}
-      <section id="beats" className="py-24 md:py-32 px-6 bg-card/30">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="display text-5xl md:text-6xl mb-16">Beats</h2>
-          <div className="grid gap-3 max-w-2xl">
-            {beats.map((b) => (
-              <div key={b.n} className="flex items-center gap-4 bg-card border border-border p-4 rounded-lg hover:border-accent transition-colors">
-                <button className="h-10 w-10 rounded-full bg-primary flex items-center justify-center hover:scale-105 transition-transform">
-                  <Play className="h-4 w-4 fill-current text-primary-foreground ml-0.5" />
-                </button>
-                <span className="text-muted-foreground text-sm w-6 tabular-nums">{b.n}</span>
-                <span className="flex-1 font-medium">{b.title}</span>
-                <span className="text-sm text-muted-foreground tabular-nums">{b.time}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Was ich anbiete */}
-      <section className="py-24 md:py-32 px-6">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="display text-5xl md:text-6xl mb-16">Was ich anbiete</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { img: mixingImg, title: "Mixing", icon: Sliders },
-              { img: recordingImg, title: "Recording", icon: Mic },
-              { img: produktionImg, title: "Musikproduktion", icon: Music },
-            ].map((s) => (
-              <div key={s.title} className="group relative overflow-hidden rounded-lg aspect-[4/5]">
-                <img
-                  src={s.img}
-                  alt={s.title}
-                  loading="lazy"
-                  width={800}
-                  height={1000}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 flex items-center justify-between">
-                  <h3 className="display text-3xl">{s.title}</h3>
-                  <s.icon className="h-6 w-6 text-accent" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Kontakt */}
       <section id="kontakt" className="py-24 md:py-32 px-6 bg-card/30">
