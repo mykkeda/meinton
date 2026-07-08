@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Instagram, Mail, Play, Music, Mic, Sliders } from "lucide-react";
-import heroImg from "@/assets/studio-hero.jpg";
-import mixingImg from "@/assets/mixing.jpg";
-import recordingImg from "@/assets/recording.jpg";
-import produktionImg from "@/assets/produktion.jpg";
-import portraitImg from "@/assets/portrait.jpg";
+import heroAsset from "@/assets/jb/mixing.webp.asset.json";
+import mixingAsset from "@/assets/jb/mixing.webp.asset.json";
+import recordingAsset from "@/assets/jb/recording.webp.asset.json";
+import produktionAsset from "@/assets/jb/produktion.webp.asset.json";
+import portraitAsset from "@/assets/jb/portrait.webp.asset.json";
 import cover1 from "@/assets/covers/c1.jpg.asset.json";
 import cover2 from "@/assets/covers/c2.jpg.asset.json";
 import cover3 from "@/assets/covers/c3.jpg.asset.json";
@@ -17,6 +17,12 @@ import cover9 from "@/assets/covers/c9.jpg.asset.json";
 import cover10 from "@/assets/covers/c10.jpg.asset.json";
 import cover11 from "@/assets/covers/c11.jpg.asset.json";
 import cover12 from "@/assets/covers/c12.jpg.asset.json";
+
+const heroImg = heroAsset.url;
+const mixingImg = mixingAsset.url;
+const recordingImg = recordingAsset.url;
+const produktionImg = produktionAsset.url;
+const portraitImg = portraitAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
