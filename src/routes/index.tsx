@@ -126,48 +126,14 @@ function Index() {
           navHidden ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex items-center gap-1 rounded-full bg-background/40 backdrop-blur-md border border-border/50 px-2 py-1.5 shadow-lg">
-          <ul className="hidden md:flex items-center">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className="block px-3 py-1 text-xs font-medium text-foreground/80 hover:text-accent transition-colors"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <button
-            type="button"
-            aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((v) => !v)}
-            className="md:hidden inline-flex items-center justify-center h-8 w-8 rounded-full hover:bg-white/10 transition-colors"
-          >
-            {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </button>
-        </div>
-        <div className={`mobile-menu md:hidden mt-2 ${menuOpen ? "open" : ""}`}>
-          <div className="mobile-menu-inner">
-            <div className="rounded-xl border border-border/50 bg-background/80 backdrop-blur-md overflow-hidden">
-              <ul className="flex flex-col py-1">
-                {navItems.map((item) => (
-                  <li key={item.href}>
-                    <a
-                      href={item.href}
-                      onClick={() => setMenuOpen(false)}
-                      className="mobile-menu-link block px-4 py-2 text-base hover:text-accent transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+        <button
+          type="button"
+          aria-label="Zurück zum Anfang"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-background/40 backdrop-blur-md border border-border/50 shadow-lg hover:bg-background/60 hover:border-accent transition-colors"
+        >
+          <ArrowUp className="h-5 w-5" />
+        </button>
       </div>
 
 
