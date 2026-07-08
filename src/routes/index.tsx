@@ -342,8 +342,8 @@ function LatestReleases() {
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
-        {Array.from({ length: 16 }).map((_, i) => (
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
+        {Array.from({ length: 12 }).map((_, i) => (
           <div key={i} className="aspect-square bg-card/50 animate-pulse rounded-md" />
         ))}
       </div>
@@ -359,7 +359,7 @@ function LatestReleases() {
   }
 
   return (
-    <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
       {data.map((t) => (
         <a
           key={t.id}
@@ -368,7 +368,7 @@ function LatestReleases() {
           rel="noreferrer"
           className="group block"
         >
-          <div className="aspect-square overflow-hidden rounded-lg bg-card/30 backdrop-blur-md border border-border/40 shadow-sm transition-all duration-500 group-hover:bg-card/50 group-hover:border-accent/30">
+          <div className="aspect-square overflow-hidden rounded-xl bg-card/30 backdrop-blur-md border border-border/40 shadow-sm transition-all duration-500 group-hover:bg-card/50 group-hover:border-accent/30">
             <img
               src={t.cover}
               alt={`${t.title} – ${t.artist}`}
@@ -376,8 +376,8 @@ function LatestReleases() {
               className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-95"
             />
           </div>
-          <p className="mt-2 text-sm font-medium truncate">{t.title}</p>
-          <p className="text-xs text-muted-foreground truncate">{t.artist}</p>
+          <p className="mt-3 text-base font-medium truncate">{t.title}</p>
+          <p className="text-sm text-muted-foreground truncate">{t.artist}</p>
         </a>
       ))}
     </div>
