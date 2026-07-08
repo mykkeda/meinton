@@ -4,7 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { ArrowUp, ChevronDown, Instagram, Mail, Menu, Play, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { getLatestTracks } from "@/lib/spotify.functions";
-import heroAsset from "@/assets/jb/mixing.webp.asset.json";
+import heroAsset from "@/assets/jb/hero-original.webp.asset.json";
 import portraitAsset from "@/assets/jb/portrait.webp.asset.json";
 import cover1 from "@/assets/covers/c1.jpg.asset.json";
 import cover2 from "@/assets/covers/c2.jpg.asset.json";
