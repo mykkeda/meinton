@@ -162,8 +162,11 @@ function Index() {
       </section>
 
       {/* Produktionen */}
-      <section id="produktionen" className="py-24 md:py-32 px-6">
-        <div className="mx-auto max-w-6xl">
+      <section id="produktionen" className="relative py-24 md:py-32 px-6 bg-background/30 backdrop-blur-sm overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-primary/20" />
+        </div>
+        <div className="relative mx-auto max-w-6xl">
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
             <div>
               <h2 className="display text-5xl md:text-6xl">Produktionen</h2>
@@ -340,8 +343,8 @@ function LatestReleases() {
   if (isLoading) {
     return (
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {Array.from({ length: 8 }).map((_, i) => (
-          <div key={i} className="aspect-square bg-card animate-pulse rounded-md" />
+        {Array.from({ length: 16 }).map((_, i) => (
+          <div key={i} className="aspect-square bg-card/50 animate-pulse rounded-md" />
         ))}
       </div>
     );
