@@ -102,14 +102,15 @@ details[open] > summary .details-chevron {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(-0.5rem);
-  transition: max-height 0.35s ease-out, opacity 0.25s ease-out, transform 0.3s ease-out;
+  transform: translateY(-0.5rem) scale(0.98);
+  transform-origin: top right;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: max-height, opacity, transform;
 }
 .mobile-menu.open {
   max-height: 24rem;
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .mobile-menu-inner {
@@ -120,5 +121,12 @@ details[open] > summary .details-chevron {
   font-family: var(--font-display);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-0.25rem);
+  transition: opacity 0.25s ease, transform 0.25s ease, color 0.2s ease;
+}
+.mobile-menu.open .mobile-menu-link {
+  opacity: 1;
+  transform: translateY(0);
 }
 
