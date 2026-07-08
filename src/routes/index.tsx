@@ -58,7 +58,9 @@ function Index() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setNavHidden(currentScrollY > 120 && currentScrollY > lastScrollY.current);
+      const threshold = 120;
+      // Full header only at the very top; floating pill everywhere else
+      setNavHidden(currentScrollY > threshold);
       lastScrollY.current = currentScrollY;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
