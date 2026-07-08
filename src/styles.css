@@ -75,7 +75,13 @@ html {
 }
 
 section[id], footer[id] {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: 768px) {
+  section[id], footer[id] {
+    scroll-margin-top: 3.5rem;
+  }
 }
 
 details > summary {
@@ -93,17 +99,19 @@ details[open] > summary .details-chevron {
 }
 
 .mobile-menu {
-  display: grid;
-  grid-template-rows: 0fr;
+  max-height: 0;
+  overflow: hidden;
   opacity: 0;
   transform: translateY(-0.5rem);
-  transition: grid-template-rows 0.35s ease-out, opacity 0.25s ease-out, transform 0.3s ease-out;
+  transition: max-height 0.35s ease-out, opacity 0.25s ease-out, transform 0.3s ease-out;
+  will-change: max-height, opacity, transform;
 }
 .mobile-menu.open {
-  grid-template-rows: 1fr;
+  max-height: 24rem;
   opacity: 1;
   transform: translateY(0);
 }
+
 .mobile-menu-inner {
   overflow: hidden;
 }
