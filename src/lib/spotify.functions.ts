@@ -35,8 +35,8 @@ export const getLatestTracks = createServerFn({ method: "GET" }).handler(
       data?.props?.pageProps?.state?.data?.entity?.trackList ?? [];
     if (!list.length) throw new Error("Playlist is empty");
 
-    // Neueste Adds stehen am Ende der Playlist → letzte 8, umgedreht
-    const newest = list.slice(-8).reverse();
+    // Playlist ist bereits newest-first sortiert
+    const newest = list.slice(0, 8);
 
     const enriched = await Promise.all(
       newest.map(async (t): Promise<LatestTrack> => {
