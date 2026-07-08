@@ -142,7 +142,7 @@ function Index() {
         <img
           src={heroImg}
           alt="Julian Blumnauer Studio"
-          className="absolute inset-0 h-full w-full object-cover brightness-150 contrast-90"
+          className="absolute inset-0 h-full w-full object-cover brightness-[1.75]"
           width={1920}
           height={1080}
         />
