@@ -129,7 +129,7 @@ function Index() {
               </h3>
               <div className="flex flex-col gap-4">
                 <a
-                  href="https://www.instagram.com/mykkeda_mix/"
+                  href="https://www.instagram.com/mykkeda_prod/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-3 bg-card border border-border hover:border-accent px-6 py-4 rounded-lg transition-colors"
