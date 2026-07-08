@@ -92,16 +92,20 @@ function Index() {
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="bg-card border border-border p-6 rounded-lg">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-16 w-16 rounded bg-accent/20 flex items-center justify-center">
-                  <Music className="h-8 w-8 text-accent" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">Playlist</p>
-                  <h3 className="text-xl font-semibold">Produced/Mixed by Julian Blumnauer</h3>
-                  <p className="text-sm text-muted-foreground">blumnauer · Spotify</p>
-                </div>
+              <div className="grid grid-cols-2 gap-0 rounded-md overflow-hidden aspect-square mb-6">
+                {mosaicCovers.map((url, i) => (
+                  <img
+                    key={i}
+                    src={url}
+                    alt="Playlist Cover"
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                ))}
               </div>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">Playlist</p>
+              <h3 className="text-xl font-semibold mt-1">Produced/Mixed by Julian Blumnauer</h3>
+              <p className="text-sm text-muted-foreground mb-6">blumnauer · Spotify</p>
               <a
                 href="https://open.spotify.com/playlist/5419zbBnnQlrsf9RCnxGyU"
                 target="_blank"
@@ -113,10 +117,11 @@ function Index() {
               </a>
             </div>
 
-            <ol className="space-y-1 max-h-[500px] overflow-y-auto pr-2">
+            <ol className="space-y-1 max-h-[600px] overflow-y-auto pr-2">
               {productions.map((t) => (
-                <li key={t.n} className="flex items-center gap-4 py-3 border-b border-border/50 hover:bg-card/50 px-2 transition-colors">
+                <li key={t.n} className="flex items-center gap-4 py-2 border-b border-border/50 hover:bg-card/50 px-2 transition-colors">
                   <span className="text-muted-foreground text-sm w-6 tabular-nums">{t.n}</span>
+                  <img src={t.cover} alt="" loading="lazy" className="h-12 w-12 rounded object-cover" />
                   <div className="flex-1 min-w-0">
                     <p className="font-medium truncate">{t.title}</p>
                     <p className="text-sm text-muted-foreground truncate">{t.artist}</p>
