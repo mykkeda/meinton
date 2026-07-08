@@ -152,36 +152,98 @@ function Index() {
         </div>
       </section>
 
-      {/* Impressum */}
+      {/* Impressum & Datenschutz */}
       <footer id="impressum" className="border-t border-border py-16 px-6">
-        <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-12 text-sm text-muted-foreground">
-          <div>
-            <h3 className="display text-2xl text-foreground mb-4">Impressum</h3>
-            <p>Angaben gemäß § 5 TMG:</p>
-            <p className="mt-2">
-              Julian Blumnauer<br />
-              Produzent, Tontechniker und Musiker<br />
-              c/o flexdienst – #11432<br />
-              Kurt-Schumacher-Straße 76<br />
-              67663 Kaiserslautern<br />
-              Deutschland
-            </p>
-            <p className="mt-2">
-              E-Mail: <a className="text-accent hover:underline" href="mailto:studio@julianblumnauer.de">studio@julianblumnauer.de</a>
-            </p>
+        <div className="mx-auto max-w-4xl flex flex-col gap-4 text-sm text-muted-foreground">
+          <details className="group bg-card/40 border border-border rounded-lg">
+            <summary className="flex items-center justify-between px-6 py-4 select-none">
+              <h3 className="display text-2xl text-foreground">Impressum</h3>
+              <ChevronDown className="details-chevron h-5 w-5 text-accent" />
+            </summary>
+            <div className="px-6 pb-6 space-y-4 leading-relaxed">
+              <p><strong className="text-foreground">Angaben gemäß § 5 TMG:</strong></p>
+              <p>
+                Julian Blumnauer<br />
+                Produzent, Tontechniker und Musiker<br />
+                c/o flexdienst – #11432<br />
+                Kurt-Schumacher-Straße 76<br />
+                67663 Kaiserslautern<br />
+                Deutschland
+              </p>
+              <p>
+                E-Mail: <a className="text-accent hover:underline" href="mailto:studio@julianblumnauer.de">studio@julianblumnauer.de</a>
+              </p>
+              <p><strong className="text-foreground">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />
+                Julian Blumnauer<br />
+                Adresse wie oben
+              </p>
+              <p><strong className="text-foreground">Hinweis auf EU-Streitschlichtung:</strong><br />
+                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
+                <a className="text-accent hover:underline" href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer">
+                  https://ec.europa.eu/consumers/odr/
+                </a>
+                <br />
+                Unsere E-Mail-Adresse findest du oben im Impressum.
+              </p>
+              <p><strong className="text-foreground">Haftungsausschluss:</strong><br />
+                Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+              </p>
+              <p><strong className="text-foreground">Urheberrecht:</strong><br />
+                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet.
+              </p>
+            </div>
+          </details>
+
+          <details className="group bg-card/40 border border-border rounded-lg">
+            <summary className="flex items-center justify-between px-6 py-4 select-none">
+              <h3 className="display text-2xl text-foreground">Datenschutz</h3>
+              <ChevronDown className="details-chevron h-5 w-5 text-accent" />
+            </summary>
+            <div className="px-6 pb-6 space-y-4 leading-relaxed">
+              <p><strong className="text-foreground">Geltungsbereich und Umgang mit personenbezogenen Daten</strong><br />
+                Diese Datenschutzerklärung informiert Nutzer über die Verarbeitung personenbezogener Daten bei der Nutzung dieser Website. Die gesetzlichen Regelungen zum Datenschutz ergeben sich aus der Europäischen Datenschutzgrundverordnung (DSGVO), ergänzt durch das Bundesdatenschutzgesetz (BDSG) und das Telemediengesetz (TMG).
+              </p>
+              <p><strong className="text-foreground">Verantwortlicher</strong><br />
+                Julian Blumnauer<br />
+                Produzent, Tontechniker und Musiker<br />
+                c/o flexdienst – #11432<br />
+                Kurt-Schumacher-Straße 76<br />
+                67663 Kaiserslautern<br />
+                Deutschland
+              </p>
+              <p><strong className="text-foreground">Erhebung und Verarbeitung personenbezogener Daten</strong><br />
+                Personenbezogene Daten sind Informationen, die sich auf eine natürliche Person beziehen (z.B. Name, Adresse, E-Mail). Diese Daten werden nur gemäß den gesetzlichen Datenschutzbestimmungen erhoben und verarbeitet.
+              </p>
+              <div>
+                <p><strong className="text-foreground">Zugriffsdaten</strong></p>
+                <p>Beim Besuch der Website werden folgende Daten in sogenannten Server-Logfiles gespeichert:</p>
+                <ul className="list-disc pl-6 mt-2 space-y-1">
+                  <li>IP-Adresse</li>
+                  <li>Zeitpunkt der Anfrage</li>
+                  <li>Übertragene Datenmenge</li>
+                  <li>Quellseite</li>
+                  <li>verwendeter Browser</li>
+                  <li>Betriebssystem</li>
+                </ul>
+              </div>
+              <p><strong className="text-foreground">Cookies</strong><br />
+                Unsere Website verwendet Cookies, um Ihnen eine bessere Nutzererfahrung zu bieten. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden und das Surfverhalten analysieren. Die Speicherung von Cookies kann durch Einstellungen im Browser verhindert werden.
+              </p>
+              <p><strong className="text-foreground">Kontaktformular</strong><br />
+                Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Formular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+              </p>
+              <p><strong className="text-foreground">Rechte der betroffenen Personen</strong><br />
+                Sie haben das Recht auf Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger sowie den Zweck der Datenverarbeitung. Ferner haben Sie das Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.
+              </p>
+              <p><strong className="text-foreground">Datensicherheit</strong><br />
+                Wir setzen angemessene technische und organisatorische Maßnahmen ein, um Ihre Daten vor Verlust, Manipulation und unberechtigten Zugriff zu schützen.
+              </p>
+            </div>
+          </details>
+
+          <div className="mt-8 pt-6 border-t border-border text-xs text-center">
+            © {new Date().getFullYear()} Julian Blumnauer
           </div>
-          <div>
-            <h3 className="display text-2xl text-foreground mb-4">Datenschutz</h3>
-            <p>
-              Diese Website verarbeitet personenbezogene Daten gemäß DSGVO, BDSG und TMG. Beim Besuch werden Server-Logfiles (IP-Adresse, Zeitpunkt, Browser, Betriebssystem) gespeichert. Anfragen über Kontaktkanäle werden ausschließlich zur Bearbeitung genutzt und nicht ohne Einwilligung weitergegeben.
-            </p>
-            <p className="mt-4">
-              EU-Streitschlichtung: <a className="text-accent hover:underline" href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer">ec.europa.eu/consumers/odr</a>
-            </p>
-          </div>
-        </div>
-        <div className="mx-auto max-w-6xl mt-12 pt-8 border-t border-border text-xs text-muted-foreground text-center">
-          © {new Date().getFullYear()} Julian Blumnauer
         </div>
       </footer>
     </div>
