@@ -5,6 +5,18 @@ import mixingImg from "@/assets/mixing.jpg";
 import recordingImg from "@/assets/recording.jpg";
 import produktionImg from "@/assets/produktion.jpg";
 import portraitImg from "@/assets/portrait.jpg";
+import cover1 from "@/assets/covers/c1.jpg.asset.json";
+import cover2 from "@/assets/covers/c2.jpg.asset.json";
+import cover3 from "@/assets/covers/c3.jpg.asset.json";
+import cover4 from "@/assets/covers/c4.jpg.asset.json";
+import cover5 from "@/assets/covers/c5.jpg.asset.json";
+import cover6 from "@/assets/covers/c6.jpg.asset.json";
+import cover7 from "@/assets/covers/c7.jpg.asset.json";
+import cover8 from "@/assets/covers/c8.jpg.asset.json";
+import cover9 from "@/assets/covers/c9.jpg.asset.json";
+import cover10 from "@/assets/covers/c10.jpg.asset.json";
+import cover11 from "@/assets/covers/c11.jpg.asset.json";
+import cover12 from "@/assets/covers/c12.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
