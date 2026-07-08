@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { ChevronDown, Instagram, Mail, Menu, Play } from "lucide-react";
-import { useState } from "react";
+import { ChevronDown, Instagram, Mail, Menu, Play, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import { getLatestTracks } from "@/lib/spotify.functions";
 import heroAsset from "@/assets/jb/mixing.webp.asset.json";
 import portraitAsset from "@/assets/jb/portrait.webp.asset.json";
@@ -46,6 +46,8 @@ const mosaicCovers = [cover1.url, cover2.url, cover3.url, cover4.url];
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
+  const lastScrollY = useRef(0);
   const navItems = [
     { href: "#top", label: "Start" },
     { href: "#produktionen", label: "Produktionen" },
@@ -53,10 +55,25 @@ function Index() {
     { href: "#impressum", label: "Impressum" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setNavHidden(currentScrollY > 120 && currentScrollY > lastScrollY.current);
+      lastScrollY.current = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Nav */}
-      <header className="fixed top-0 z-50 w-full bg-background/70 backdrop-blur-md border-b border-border">
+      <header
+        className={`fixed top-0 z-50 w-full bg-background/70 backdrop-blur-md border-b border-border transition-transform duration-500 ease-out ${
+          navHidden ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
+        }`}
+      >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#top" className="display text-xl tracking-widest">JULIAN BLUMNAUER</a>
           <ul className="hidden md:flex items-center gap-8 text-sm">
@@ -94,6 +111,54 @@ function Index() {
           </div>
         )}
       </header>
+
+      {/* Floating nav pill when header is hidden */}
+      <div
+        className={`fixed top-3 right-3 z-50 transition-all duration-500 ease-out ${
+          navHidden ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="flex items-center gap-1 rounded-full bg-background/40 backdrop-blur-md border border-border/50 px-2 py-1.5 shadow-lg">
+          <ul className="hidden md:flex items-center">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="block px-3 py-1 text-xs font-medium text-foreground/80 hover:text-accent transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <button
+            type="button"
+            aria-label="Menü öffnen"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="md:hidden inline-flex items-center justify-center h-8 w-8 rounded-full hover:bg-white/10 transition-colors"
+          >
+            {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
+        </div>
+        {menuOpen && (
+          <div className="md:hidden mt-2 rounded-xl border border-border/50 bg-background/80 backdrop-blur-md overflow-hidden">
+            <ul className="flex flex-col py-1">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block px-4 py-2 text-sm hover:text-accent transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
 
 
       {/* Hero */}
