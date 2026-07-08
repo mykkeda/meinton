@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
 import { Instagram, Mail, Play, Music, Mic, Sliders } from "lucide-react";
+import { getLatestTracks } from "@/lib/spotify.functions";
 import heroAsset from "@/assets/jb/mixing.webp.asset.json";
 import mixingAsset from "@/assets/jb/mixing.webp.asset.json";
 import recordingAsset from "@/assets/jb/recording.webp.asset.json";
@@ -94,47 +97,23 @@ function Index() {
       {/* Produktionen */}
       <section id="produktionen" className="py-24 md:py-32 px-6">
         <div className="mx-auto max-w-6xl">
-          <h2 className="display text-5xl md:text-6xl mb-16">Produktionen</h2>
-
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="bg-card border border-border p-4 rounded-lg">
-              <iframe
-                title="Spotify Playlist – Produced/Mixed by Julian Blumnauer"
-                src="https://open.spotify.com/embed/playlist/5419zbBnnQlrsf9RCnxGyU?utm_source=generator&theme=0"
-                width="100%"
-                height="700"
-                frameBorder={0}
-                loading="lazy"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                allowFullScreen
-                className="rounded-md w-full"
-                style={{ minHeight: 600 }}
-              />
-              <a
-                href="https://open.spotify.com/playlist/5419zbBnnQlrsf9RCnxGyU"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex items-center gap-2 bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold px-6 py-3 rounded-full transition-colors"
-              >
-                <Play className="h-4 w-4 fill-current" />
-                Auf Spotify öffnen
-              </a>
+          <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
+            <div>
+              <h2 className="display text-5xl md:text-6xl">Produktionen</h2>
+              <p className="text-muted-foreground mt-2">Neueste Releases aus der Spotify-Playlist</p>
             </div>
-
-            <ol className="space-y-1 max-h-[600px] overflow-y-auto pr-2">
-              {productions.map((t) => (
-                <li key={t.n} className="flex items-center gap-4 py-2 border-b border-border/50 hover:bg-card/50 px-2 transition-colors">
-                  <span className="text-muted-foreground text-sm w-6 tabular-nums">{t.n}</span>
-                  <img src={t.cover} alt="" loading="lazy" className="h-12 w-12 rounded object-cover" />
-                  <div className="flex-1 min-w-0">
-                    <p className="font-medium truncate">{t.title}</p>
-                    <p className="text-sm text-muted-foreground truncate">{t.artist}</p>
-                  </div>
-                  <span className="text-sm text-muted-foreground tabular-nums">{t.time}</span>
-                </li>
-              ))}
-            </ol>
+            <a
+              href="https://open.spotify.com/playlist/5419zbBnnQlrsf9RCnxGyU"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold px-6 py-3 rounded-full transition-colors"
+            >
+              <Play className="h-4 w-4 fill-current" />
+              Ganze Playlist auf Spotify
+            </a>
           </div>
+
+          <LatestReleases />
         </div>
       </section>
 
@@ -262,6 +241,59 @@ function Index() {
           © {new Date().getFullYear()} Julian Blumnauer
         </div>
       </footer>
+    </div>
+  );
+}
+
+function LatestReleases() {
+  const fetchLatest = useServerFn(getLatestTracks);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["spotify", "latest", "5419zbBnnQlrsf9RCnxGyU"],
+    queryFn: () => fetchLatest(),
+    staleTime: 1000 * 60 * 60,
+    refetchOnWindowFocus: false,
+  });
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div key={i} className="aspect-square bg-card animate-pulse rounded-md" />
+        ))}
+      </div>
+    );
+  }
+
+  if (error || !data?.length) {
+    return (
+      <p className="text-muted-foreground text-sm">
+        Releases konnten nicht geladen werden.
+      </p>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {data.map((t) => (
+        <a
+          key={t.id}
+          href={t.url}
+          target="_blank"
+          rel="noreferrer"
+          className="group block"
+        >
+          <div className="aspect-square overflow-hidden rounded-md bg-card">
+            <img
+              src={t.cover}
+              alt={`${t.title} – ${t.artist}`}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <p className="mt-3 font-medium truncate">{t.title}</p>
+          <p className="text-sm text-muted-foreground truncate">{t.artist}</p>
+        </a>
+      ))}
     </div>
   );
 }
