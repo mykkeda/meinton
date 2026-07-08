@@ -94,10 +94,10 @@ function Index() {
               href="https://open.spotify.com/playlist/5419zbBnnQlrsf9RCnxGyU"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold px-6 py-3 rounded-full transition-colors"
+              aria-label="Ganze Playlist auf Spotify"
+              className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#1DB954] hover:bg-[#1ed760] transition-colors"
             >
-              <Play className="h-4 w-4 fill-current" />
-              Ganze Playlist auf Spotify
+              <Play className="h-5 w-5 fill-current text-black" />
             </a>
           </div>
 
