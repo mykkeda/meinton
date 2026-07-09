@@ -209,7 +209,7 @@ function Index() {
             </div>
             <div>
           <h3 className="display text-3xl md:text-4xl mb-8 leading-tight">
-            Du planst eine Produktion, brauchst einen Mix oder willst Feedback zu deinem Song? Schreib mir mit ein paar Infos zu deinem Projekt.
+            Du planst eine Produktion, brauchst einen Mix oder willst Feedback zu deinem Song? Schreib mir mit ein paar Infos zu deinem Projekt und ich melde mich bei dir.
           </h3>
               <div className="flex flex-col gap-4">
                 <a
