@@ -208,9 +208,9 @@ function Index() {
               <p className="mt-4 display text-2xl">Julian Blumnauer</p>
             </div>
             <div>
-              <h3 className="display text-3xl md:text-4xl mb-8 leading-tight">
-                Du hast eine Anfrage oder willst etwas wissen? Schreib mir gerne hier:
-              </h3>
+          <h3 className="display text-3xl md:text-4xl mb-8 leading-tight">
+            Du planst eine Produktion, brauchst einen Mix oder willst Feedback zu deinem Song? Schreib mir mit ein paar Infos zu deinem Projekt.
+          </h3>
               <div className="flex flex-col gap-4">
                 <a
                   href="https://www.instagram.com/mykkeda_prod/"
