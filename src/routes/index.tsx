@@ -234,7 +234,7 @@ function Index() {
       </section>
 
       {/* Impressum & Datenschutz */}
-      <footer id="impressum" className="border-t border-border -mt-8 pt-24 md:pt-32 pb-16 px-6 lg:px-[2cm]">
+      <footer id="impressum" className="-mt-8 pt-24 md:pt-32 pb-16 px-6 lg:px-[2cm] bg-background">
         <div className="mx-auto max-w-4xl flex flex-col gap-4 text-sm text-muted-foreground">
           <details className="group bg-card/40 border border-border rounded-lg">
             <summary className="flex items-center justify-between px-6 py-4 select-none">
