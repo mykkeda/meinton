@@ -189,7 +189,7 @@ function Index() {
 
 
       {/* Kontakt */}
-      <section id="kontakt" className="-mt-8 pt-32 md:pt-40 pb-24 md:pb-32 px-6 lg:px-[2cm] bg-background">
+      <section id="kontakt" className="pt-12 md:pt-16 pb-24 md:pb-32 px-6 lg:px-[2cm] bg-background">
         <div className="mx-auto max-w-6xl">
           <h2 className="display text-5xl md:text-6xl mb-16">Kontakt</h2>
           <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-center">
