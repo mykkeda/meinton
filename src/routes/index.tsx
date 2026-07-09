@@ -165,10 +165,7 @@ function Index() {
       </section>
 
       {/* Produktionen */}
-      <section id="produktionen" className="relative -mt-8 pt-32 md:pt-40 pb-24 md:pb-32 px-6 lg:px-[2cm] bg-card/30 backdrop-blur-sm overflow-hidden">
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10" />
-        </div>
+      <section id="produktionen" className="relative -mt-8 pt-32 md:pt-40 pb-24 md:pb-32 px-6 lg:px-[2cm] bg-card/30 overflow-hidden">
         <div className="relative mx-auto max-w-6xl">
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
             <div>
