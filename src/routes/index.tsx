@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { ArrowUp, ChevronDown, Instagram, Mail, Menu, Play, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import type { MouseEvent } from "react";
 import { getLatestTracks } from "@/lib/spotify.functions";
 import heroAsset from "@/assets/jb/hero-original.webp.asset.json";
 import portraitAsset from "@/assets/jb/portrait.webp.asset.json";
@@ -72,6 +73,32 @@ function Index() {
     setMenuOpen(false);
   }, [navHidden]);
 
+  useEffect(() => {
+    if (!window.location.hash) return;
+
+    const target = document.querySelector<HTMLElement>(window.location.hash);
+    if (!target) return;
+
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: target.offsetTop, left: 0, behavior: "auto" });
+    });
+  }, []);
+
+  const handleAnchorClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+
+    event.preventDefault();
+    setMenuOpen(false);
+
+    const target = document.querySelector<HTMLElement>(href);
+    if (!target) return;
+
+    window.history.pushState(null, "", href);
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: target.offsetTop, left: 0, behavior: "smooth" });
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Nav */}
@@ -81,11 +108,11 @@ function Index() {
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-[2cm] py-4">
-          <a href="#top" className="display text-xl tracking-widest">JULIAN BLUMNAUER</a>
+          <a href="#top" onClick={(event) => handleAnchorClick(event, "#top")} className="display text-xl tracking-widest">JULIAN BLUMNAUER</a>
           <ul className="hidden md:flex items-center gap-8 text-sm">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="hover:text-accent transition-colors">{item.label}</a>
+                <a href={item.href} onClick={(event) => handleAnchorClick(event, item.href)} className="hover:text-accent transition-colors">{item.label}</a>
               </li>
             ))}
           </ul>
@@ -107,7 +134,7 @@ function Index() {
                   <li key={item.href}>
                     <a
                       href={item.href}
-                      onClick={() => setMenuOpen(false)}
+                      onClick={(event) => handleAnchorClick(event, item.href)}
                       className="mobile-menu-link block py-3 text-lg hover:text-accent transition-colors"
                     >
                       {item.label}
@@ -157,6 +184,7 @@ function Index() {
           </h1>
           <a
             href="#kontakt"
+            onClick={(event) => handleAnchorClick(event, "#kontakt")}
             className="inline-block mt-12 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-sm tracking-widest uppercase transition-colors drop-shadow-lg"
           >
             Kontakt
