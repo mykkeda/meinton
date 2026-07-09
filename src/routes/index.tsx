@@ -220,22 +220,22 @@ function Index() {
       <section id="kontakt" className="pt-12 md:pt-16 pb-24 md:pb-32 px-6 lg:px-[2cm] bg-background">
         <div className="mx-auto max-w-6xl">
           <h2 className="display text-5xl md:text-6xl mb-16">Kontakt</h2>
-          <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-center">
+          <div className="grid md:grid-cols-[260px_1fr] lg:grid-cols-[300px_1fr] gap-12 items-start">
             <div className="relative">
               <img
                 src={portraitImg}
                 alt="Julian Blumnauer"
                 loading="lazy"
-                width={800}
-                height={1000}
-                className="w-full rounded-lg object-cover aspect-[4/5]"
+                width={600}
+                height={800}
+                className="w-full max-w-[260px] lg:max-w-[300px] rounded-lg object-cover aspect-[3/4]"
               />
               <p className="mt-4 display text-2xl">Julian Blumnauer</p>
             </div>
             <div>
-          <h3 className="display text-3xl md:text-4xl mb-8 leading-tight">
-            Du planst eine Produktion, brauchst einen Mix oder willst Feedback zu deinem Song? Schreib mir mit ein paar Infos zu deinem Projekt und ich melde mich bei dir.
-          </h3>
+              <h3 className="display text-3xl md:text-4xl mb-8 leading-tight">
+                Du planst eine Produktion, brauchst einen Mix oder willst Feedback zu deinem Song? Schreib mir mit ein paar Infos zu deinem Projekt und ich melde mich bei dir.
+              </h3>
               <div className="flex flex-col gap-4">
                 <a
                   href="https://www.instagram.com/mykkeda_prod/"
