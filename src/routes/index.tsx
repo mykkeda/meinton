@@ -165,7 +165,7 @@ function Index() {
       </section>
 
       {/* Produktionen */}
-      <section id="produktionen" className="relative py-24 md:py-32 px-6 lg:px-[2cm] bg-background/15 backdrop-blur-sm overflow-hidden">
+      <section id="produktionen" className="relative -mt-8 pt-32 md:pt-40 pb-24 md:pb-32 px-6 lg:px-[2cm] bg-background/15 backdrop-blur-sm overflow-hidden">
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10" />
         </div>
@@ -192,7 +192,7 @@ function Index() {
 
 
       {/* Kontakt */}
-      <section id="kontakt" className="py-24 md:py-32 px-6 lg:px-[2cm] bg-card/30">
+      <section id="kontakt" className="-mt-8 pt-32 md:pt-40 pb-24 md:pb-32 px-6 lg:px-[2cm] bg-card/30">
         <div className="mx-auto max-w-6xl">
           <h2 className="display text-5xl md:text-6xl mb-16">Kontakt</h2>
           <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-center">
@@ -237,7 +237,7 @@ function Index() {
       </section>
 
       {/* Impressum & Datenschutz */}
-      <footer id="impressum" className="border-t border-border py-16 px-6 lg:px-[2cm]">
+      <footer id="impressum" className="border-t border-border -mt-8 pt-24 md:pt-32 pb-16 px-6 lg:px-[2cm]">
         <div className="mx-auto max-w-4xl flex flex-col gap-4 text-sm text-muted-foreground">
           <details className="group bg-card/40 border border-border rounded-lg">
             <summary className="flex items-center justify-between px-6 py-4 select-none">

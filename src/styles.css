@@ -75,12 +75,12 @@ html {
 }
 
 section[id], footer[id] {
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 8rem;
 }
 
 @media (max-width: 768px) {
   section[id], footer[id] {
-    scroll-margin-top: 3.5rem;
+    scroll-margin-top: 5rem;
   }
 }
 
