@@ -165,7 +165,7 @@ function Index() {
       </section>
 
       {/* Produktionen */}
-      <section id="produktionen" className="relative -mt-8 pt-32 md:pt-40 pb-24 md:pb-32 px-6 lg:px-[2cm] bg-background overflow-hidden">
+      <section id="produktionen" className="relative pt-12 md:pt-16 pb-24 md:pb-32 px-6 lg:px-[2cm] bg-background overflow-hidden">
         <div className="relative mx-auto max-w-6xl">
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
             <div>
@@ -189,7 +189,7 @@ function Index() {
 
 
       {/* Kontakt */}
-      <section id="kontakt" className="-mt-8 pt-32 md:pt-40 pb-24 md:pb-32 px-6 lg:px-[2cm] bg-background">
+      <section id="kontakt" className="pt-12 md:pt-16 pb-24 md:pb-32 px-6 lg:px-[2cm] bg-background">
         <div className="mx-auto max-w-6xl">
           <h2 className="display text-5xl md:text-6xl mb-16">Kontakt</h2>
           <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-center">
@@ -234,7 +234,7 @@ function Index() {
       </section>
 
       {/* Impressum & Datenschutz */}
-      <footer id="impressum" className="-mt-8 pt-24 md:pt-32 pb-16 px-6 lg:px-[2cm] bg-background">
+      <footer id="impressum" className="pt-12 md:pt-16 pb-16 px-6 lg:px-[2cm] bg-background">
         <div className="mx-auto max-w-4xl flex flex-col gap-4 text-sm text-muted-foreground">
           <details className="group bg-card/40 border border-border rounded-lg">
             <summary className="flex items-center justify-between px-6 py-4 select-none">
