@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import type { MouseEvent } from "react";
 import { getLatestTracks } from "@/lib/spotify.functions";
 import heroAsset from "@/assets/jb/hero-original.webp.asset.json";
-import portraitAsset from "@/assets/jb/portrait.webp.asset.json";
+import portraitImg from "@/assets/jb/portrait-with-name.png";
 import cover1 from "@/assets/covers/c1.jpg.asset.json";
 import cover2 from "@/assets/covers/c2.jpg.asset.json";
 import cover3 from "@/assets/covers/c3.jpg.asset.json";
@@ -21,7 +21,6 @@ import cover11 from "@/assets/covers/c11.jpg.asset.json";
 import cover12 from "@/assets/covers/c12.jpg.asset.json";
 
 const heroImg = heroAsset.url;
-const portraitImg = portraitAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
