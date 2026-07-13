@@ -240,7 +240,14 @@ function Index() {
               <h3 className="display text-3xl md:text-4xl mb-8 leading-tight">
                 Du planst eine Produktion, brauchst einen Mix oder willst Feedback zu deinem Song? Schreib mir mit ein paar Infos zu deinem Projekt und ich melde mich bei dir.
               </h3>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="mailto:studio@julianblumnauer.de"
+                  className="inline-flex items-center gap-3 bg-card border border-border hover:border-accent px-6 py-4 rounded-lg transition-colors"
+                >
+                  <Mail className="h-5 w-5 text-accent" />
+                  <span>studio@julianblumnauer.de</span>
+                </a>
                 <a
                   href="https://www.instagram.com/mykkeda_prod/"
                   className="inline-flex items-center gap-3 bg-card border border-border hover:border-accent px-6 py-4 rounded-lg transition-colors"
@@ -251,13 +258,6 @@ function Index() {
                 >
                   <Instagram className="h-5 w-5 text-accent" />
                   <span>Instagram</span>
-                </a>
-                <a
-                  href="mailto:studio@julianblumnauer.de"
-                  className="inline-flex items-center gap-3 bg-card border border-border hover:border-accent px-6 py-4 rounded-lg transition-colors"
-                >
-                  <Mail className="h-5 w-5 text-accent" />
-                  <span>studio@julianblumnauer.de</span>
                 </a>
               </div>
             </div>
