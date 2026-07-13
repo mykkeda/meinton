@@ -182,9 +182,6 @@ function Index() {
           >
             MIXING<br />RECORDING<br />MUSIKPRODUKTION
           </h1>
-          <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-2xl tracking-wide" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.55)' }}>
-            Pop · Indiepop · Bands · Solo Artists – produziert, aufgenommen und gemischt.
-          </p>
           <a
             href="#kontakt"
             onClick={(event) => handleAnchorClick(event, "#kontakt")}
@@ -201,6 +198,7 @@ function Index() {
           <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
             <div>
               <h2 className="display text-5xl md:text-6xl">Produktionen</h2>
+              <p className="mt-2 text-sm text-muted-foreground tracking-wide">Pop · Indiepop · Bands · Solo Artists</p>
             </div>
             <a
               href="https://open.spotify.com/playlist/5419zbBnnQlrsf9RCnxGyU"
