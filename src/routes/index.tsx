@@ -233,7 +233,6 @@ function Index() {
                 height={800}
                 className="w-full max-w-[260px] lg:max-w-[300px] rounded-lg object-cover aspect-[3/4]"
               />
-              <p className="mt-4 display text-2xl">Julian Blumnauer</p>
             </div>
             <div>
               <h3 className="display text-3xl md:text-4xl mb-8 leading-tight">
