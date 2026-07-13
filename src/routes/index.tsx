@@ -410,10 +410,14 @@ function LatestReleases() {
               loading="lazy"
               className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-95"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex flex-col justify-end p-4">
               <p className="text-sm md:text-base font-medium text-white truncate drop-shadow">{t.title}</p>
               <p className="text-xs md:text-sm text-white/80 truncate drop-shadow">{t.artist}</p>
             </div>
+          </div>
+          <div className="mt-3 md:hidden">
+            <p className="text-sm font-medium truncate">{t.title}</p>
+            <p className="text-xs text-muted-foreground truncate">{t.artist}</p>
           </div>
         </a>
       ))}
