@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import type { MouseEvent } from "react";
 import { getLatestTracks } from "@/lib/spotify.functions";
 import heroAsset from "@/assets/jb/hero-original.webp.asset.json";
-import portraitImg from "@/assets/jb/portrait-with-name.png";
+import portraitAsset from "@/assets/jb/portrait.webp.asset.json";
 import cover1 from "@/assets/covers/c1.jpg.asset.json";
 import cover2 from "@/assets/covers/c2.jpg.asset.json";
 import cover3 from "@/assets/covers/c3.jpg.asset.json";
@@ -21,6 +21,7 @@ import cover11 from "@/assets/covers/c11.jpg.asset.json";
 import cover12 from "@/assets/covers/c12.jpg.asset.json";
 
 const heroImg = heroAsset.url;
+const portraitImg = portraitAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -233,6 +234,9 @@ function Index() {
                 height={800}
                 className="w-full max-w-[260px] lg:max-w-[300px] rounded-lg object-cover aspect-[3/4]"
               />
+              <p className="absolute bottom-4 left-4 display text-[0.9rem] text-white leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)]">
+                Julian Blumnauer
+              </p>
             </div>
             <div>
               <h3 className="display text-3xl md:text-4xl mb-8 leading-tight">
