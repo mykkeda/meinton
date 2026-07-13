@@ -415,8 +415,6 @@ function LatestReleases() {
               <p className="text-xs md:text-sm text-white/80 truncate drop-shadow">{t.artist}</p>
             </div>
           </div>
-          <p className="mt-3 text-sm md:text-base font-medium truncate">{t.title}</p>
-          <p className="text-xs md:text-sm text-muted-foreground truncate">{t.artist}</p>
         </a>
       ))}
     </div>
