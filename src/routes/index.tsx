@@ -182,6 +182,9 @@ function Index() {
           >
             MIXING<br />RECORDING<br />MUSIKPRODUKTION
           </h1>
+          <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-2xl tracking-wide" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.55)' }}>
+            Pop · Indiepop · Bands · Solo Artists – produziert, aufgenommen und gemischt.
+          </p>
           <a
             href="#kontakt"
             onClick={(event) => handleAnchorClick(event, "#kontakt")}
